@@ -1,86 +1,194 @@
-📊 Superstore Sales Analysis — Power BI Dashboard
-A live interactive Sales Analytics Dashboard built in Power BI Desktop using the Superstore retail dataset. The dashboard provides insights into sales performance across regions, categories, segments, and shipping modes.
+# 📊 Superstore Sales Analysis — Power BI Dashboard
 
-📸 Dashboard Preview
-<img width="1003" height="743" alt="Screenshot 2026-03-13 225110" src="https://github.com/user-attachments/assets/253e4df6-2cfc-4cbe-a814-fdd7d504c719" />
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Dataset](https://img.shields.io/badge/Dataset-Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
+A live interactive **Sales Analytics Dashboard** built in Power BI Desktop using the Superstore retail dataset.
 
-Key highlights: Dark navy header, KPI cards, interactive slicers, and 6 chart visuals with cross-filtering enabled.
+---
 
+## 📸 Dashboard Preview
 
-📁 Project Structure
+![Superstore Analysis Dashboard](./dashboard-screenshot.png)
+
+---
+
+## 📁 Project Structure
+
+```
 superstore-powerbi-dashboard/
-│
-├── Superstore_Analysis.pbix       # Main Power BI file
-├── train.csv                      # Source dataset (9,800 rows)
-├── dashboard-screenshot.png       # Dashboard preview image
-└── README.md                      # Project documentation
+├── Live_project.pbix
+├── train.csv
+├── dashboard-screenshot.png
+└── README.md
+```
 
-📋 Dataset
-PropertyDetailsSourceKaggle — Superstore DatasetRows9,800 ordersColumns18 columnsDate Range2015 – 2018
-Columns Used
-ColumnDescriptionOrder IDUnique order identifierOrder DateDate the order was placedShip DateDate the order was shippedShip ModeShipping class (Standard, First, Second, Same Day)Customer NameName of the customerSegmentCustomer segment (Consumer, Corporate, Home Office)RegionUS region (West, East, Central, South)CategoryProduct category (Furniture, Technology, Office Supplies)Sub-CategoryProduct sub-category (Phones, Chairs, Storage, etc.)SalesRevenue generated per order
+---
 
-📊 Dashboard Visuals
-VisualTypeFields UsedTotal SalesKPI CardSUM(Sales)Total OrdersKPI CardDISTINCTCOUNT(Order ID)Avg Order ValueKPI CardTotal Sales / Total OrdersSales by Sub-CategoryHorizontal Bar ChartSub-Category, SalesSales by CategoryHorizontal Bar ChartCategory, SalesSales by RegionDonut ChartRegion, SalesSales by SegmentPie ChartSegment, SalesSales by MonthLine ChartMonth, SalesTop Sub-CategoriesTableSub-Category, Sum of SalesRegion FilterTile SlicerRegionCategory FilterTile SlicerCategoryDate FilterDate Range SlicerOrder Date
+## 📋 Dataset
 
-🧮 DAX Measures
-dax-- Total Sales
+| Property | Details |
+|---|---|
+| **Source** | [Kaggle — Superstore Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) |
+| **Rows** | 9,800 orders |
+| **Columns** | 18 columns |
+| **Date Range** | 2015 – 2018 |
+
+### Columns Used
+
+| Column | Description |
+|---|---|
+| Order ID | Unique order identifier |
+| Order Date | Date the order was placed |
+| Ship Date | Date the order was shipped |
+| Ship Mode | Standard / First / Second / Same Day |
+| Segment | Consumer / Corporate / Home Office |
+| Region | West / East / Central / South |
+| Category | Furniture / Technology / Office Supplies |
+| Sub-Category | Phones / Chairs / Storage etc. |
+| Sales | Revenue per order |
+
+---
+
+## 📊 Dashboard Visuals
+
+| Visual | Type | Fields |
+|---|---|---|
+| Total Sales | KPI Card | SUM(Sales) |
+| Total Orders | KPI Card | DISTINCTCOUNT(Order ID) |
+| Avg Order Value | KPI Card | Sales / Orders |
+| Sales by Sub-Category | Bar Chart | Sub-Category, Sales |
+| Sales by Category | Bar Chart | Category, Sales |
+| Sales by Region | Donut Chart | Region, Sales |
+| Sales by Segment | Pie Chart | Segment, Sales |
+| Sales by Month | Line Chart | Month, Sales |
+| Top Sub-Categories | Table | Sub-Category, Sales |
+| Region Filter | Tile Slicer | Region |
+| Category Filter | Tile Slicer | Category |
+| Date Filter | Date Range Slicer | Order Date |
+
+---
+
+## 🧮 DAX Measures
+
+```dax
 Total Sales = SUM('train'[Sales])
+```
 
--- Total Orders
+```dax
 Total Orders = DISTINCTCOUNT('train'[Order ID])
+```
 
--- Average Order Value
+```dax
 Avg Order Value = DIVIDE([Total Sales], [Total Orders])
+```
 
-🔑 Key Insights
+---
 
-Phones and Chairs are the top 2 sub-categories with ₹3.27M and ₹3.22M in sales respectively
-West region leads with 31.4% of total sales (₹710K)
-Consumer segment dominates with 50.7% of all sales
-Technology is the highest performing category at ₹0.83M
-Standard Class is the most used shipping mode across all orders
-Total revenue across all years: ₹19,90,893
+## 🔑 Key Insights
 
+- 📱 **Phones** are the top sub-category — ₹3.27M in sales
+- 🌍 **West region** leads with 31.4% of total sales
+- 👤 **Consumer segment** is 50.7% of all customers
+- 💻 **Technology** is the highest selling category at ₹0.83M
+- 🚚 **Standard Class** is the most used shipping mode
+- 💰 Total revenue across all years: **₹19,90,893**
 
-🛠️ Tools & Technologies
-ToolPurposePower BI DesktopDashboard creation and visualizationPower Query EditorData transformation and cleaningDAXCustom measures and calculationsCSV (Kaggle)Source data
+---
 
-🚀 How to Run This Project
+## 🛠️ Tools Used
 
-Clone this repository
+| Tool | Purpose |
+|---|---|
+| Power BI Desktop | Dashboard and visualization |
+| Power Query | Data cleaning and transformation |
+| DAX | Custom calculated measures |
+| CSV from Kaggle | Source dataset |
 
-bash   git clone https://github.com/Meghana-b-u/superstore-powerbi-dashboard.git
+---
 
-Open Power BI Desktop
+## 🚀 How to Run This Project
 
-Download free from Microsoft Power BI
+**Step 1** — Clone this repository
 
+```bash
+git clone https://github.com/Meghana-b-u/superstore-powerbi-dashboard.git
+```
 
-Open the .pbix file
+**Step 2** — Open Power BI Desktop
 
-File → Open → select Superstore_Analysis.pbix
+```
+Download free from https://powerbi.microsoft.com/desktop/
+```
 
+**Step 3** — Open the .pbix file
 
-Refresh the data (if needed)
+```
+File → Open → select Live_project.pbix
+```
 
+**Step 4** — Refresh data if needed
+
+```
 Home → Refresh
+```
 
+**Step 5** — Explore the dashboard
 
-Explore the dashboard
-
+```
 Use slicers to filter by Region, Category, and Date Range
-Click any chart to cross-filter all other visuals
+Click any chart to cross-filter all other visuals automatically
+```
 
-👤 Author
-Meghana Balappa Uppar
+---
 
-GitHub: @meghana-b-u
-LinkedIn: meghana-uppar-374603267
+## 📌 How to Push to GitHub
 
+**Step 1** — Open terminal in your project folder and initialize git
 
-📄 License
-This project is open source and available under the MIT License.
+```bash
+git init
+```
 
-⭐ If you found this project helpful, please give it a star on GitHub!
+**Step 2** — Add all project files
+
+```bash
+git add .
+```
+
+**Step 3** — Commit with a message
+
+```bash
+git commit -m "Add Superstore Power BI Dashboard"
+```
+
+**Step 4** — Connect to your GitHub repository
+
+```bash
+git remote add origin https://github.com/Meghana-b-u/superstore-powerbi-dashboard.git
+```
+
+**Step 5** — Push to GitHub
+
+```bash
+git push -u origin main
+```
+
+---
+
+## 👤 Author
+
+**Meghana Balappa Uppar**
+- GitHub: (https://github.com/Meghana-b-u)
+- LinkedIn: (https://www.linkedin.com/in/meghana-uppar-374603267/)
+
+---
+
+## 📄 License
+
+This project is open source under the [MIT License](LICENSE).
+
+---
+
+⭐ Star this repo if you found it helpful!
