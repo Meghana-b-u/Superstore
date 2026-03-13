@@ -10,7 +10,8 @@ A live interactive **Sales Analytics Dashboard** built in Power BI Desktop using
 
 ## 📸 Dashboard Preview
 
-![Superstore Analysis Dashboard](./dashboard-screenshot.png)
+<img width="1003" height="743" alt="Screenshot 2026-03-13 225110" src="https://github.com/user-attachments/assets/cff9a6d6-1478-4725-861b-ffd539f05b81" />
+
 
 ---
 
